@@ -11,8 +11,19 @@
 
   body {
     @apply bg-brand-bg text-brand-text;
+    position: relative;
+  }
+
+  /* Grain noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
     background-image: url('/images/noise.svg');
     background-repeat: repeat;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 100;
   }
 
   ::selection {
@@ -26,7 +37,7 @@
 
   /* Skip to content */
   .skip-to-content {
-    @apply absolute -top-full left-4 z-[100] bg-brand-accent text-brand-bg px-4 py-2 rounded-b-lg font-semibold transition-all;
+    @apply absolute -top-full left-4 z-[100] bg-brand-accent text-brand-bg px-4 py-2 rounded-b-lg font-bold transition-all;
   }
 
   .skip-to-content:focus {
@@ -37,7 +48,7 @@
 @layer components {
   /* Scrollbar styling */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -45,11 +56,39 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-brand-text-muted/30 rounded-full;
+    @apply bg-brand-accent/20 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand-text-muted/50;
+    @apply bg-brand-accent/40;
+  }
+
+  /* Serif italic class for the editorial type */
+  .font-editorial {
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-style: italic;
+  }
+
+  /* Animated underline for links and titles */
+  .underline-hover {
+    background-image: linear-gradient(#00BF63, #00BF63);
+    background-size: 0% 2px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+  }
+
+  .underline-hover:hover {
+    background-size: 100% 2px;
+  }
+
+  /* Green glow effect for hover states */
+  .glow-hover {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 20px rgba(0, 191, 99, 0.15), 0 0 60px rgba(0, 191, 99, 0.05);
   }
 }
 
@@ -59,15 +98,19 @@
 }
 
 .prose-od h1 {
-  @apply text-4xl md:text-5xl font-bold text-white mt-12 mb-6 tracking-tight;
+  @apply text-4xl md:text-5xl text-white mt-12 mb-6 tracking-tight;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-style: italic;
 }
 
 .prose-od h2 {
-  @apply text-2xl md:text-3xl font-bold text-white mt-10 mb-4 tracking-tight;
+  @apply text-2xl md:text-3xl text-white mt-10 mb-4 tracking-tight;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-style: italic;
 }
 
 .prose-od h3 {
-  @apply text-xl md:text-2xl font-semibold text-white mt-8 mb-3;
+  @apply text-xl md:text-2xl font-bold text-white mt-8 mb-3;
 }
 
 .prose-od p {
@@ -79,7 +122,7 @@
 }
 
 .prose-od strong {
-  @apply text-white font-semibold;
+  @apply text-white font-bold;
 }
 
 .prose-od em {
@@ -99,11 +142,16 @@
 }
 
 .prose-od blockquote {
-  @apply border-l-4 border-brand-accent pl-6 py-2 my-6 bg-brand-accent/5 rounded-r-lg;
+  @apply border-l-4 border-brand-accent pl-6 py-3 my-8 rounded-r-lg;
+  background: rgba(0, 191, 99, 0.04);
 }
 
 .prose-od blockquote p {
-  @apply text-brand-text/80 italic mb-0;
+  @apply mb-0;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-style: italic;
+  font-size: 1.15em;
+  color: rgba(232, 232, 232, 0.8);
 }
 
 .prose-od code {
@@ -119,7 +167,7 @@
 }
 
 .prose-od hr {
-  @apply border-brand-border my-8;
+  @apply border-brand-border my-10;
 }
 
 .prose-od img {

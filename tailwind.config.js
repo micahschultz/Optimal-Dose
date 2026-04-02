@@ -9,24 +9,27 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          bg: '#0A0A0A',
-          card: '#141414',
-          accent: '#00D4AA',
-          'accent-dim': 'rgba(0, 212, 170, 0.15)',
-          'accent-glow': 'rgba(0, 212, 170, 0.4)',
-          text: '#E5E5E5',
+          bg: '#1B1B1B',
+          card: '#242424',
+          accent: '#00BF63',
+          'accent-dim': 'rgba(0, 191, 99, 0.15)',
+          'accent-glow': 'rgba(0, 191, 99, 0.4)',
+          text: '#E8E8E8',
           'text-muted': '#888888',
-          border: 'rgba(255, 255, 255, 0.08)',
+          border: 'rgba(255, 255, 255, 0.06)',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+        serif: ['"Times New Roman"', 'Times', 'Georgia', 'serif'],
+        mono: ['"Space Mono"', '"IBM Plex Mono"', 'monospace'],
       },
       fontSize: {
         '5xl': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         '6xl': ['3.75rem', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
         '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.03em' }],
+        '8xl': ['6rem', { lineHeight: '1', letterSpacing: '-0.03em' }],
+        '9xl': ['8rem', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
       },
       backgroundImage: {
         noise: "url('/images/noise.svg')",

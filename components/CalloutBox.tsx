@@ -7,25 +7,22 @@ interface CalloutBoxProps {
 
 const styles = {
   takeaway: {
-    border: 'border-brand-accent',
+    border: 'border-brand-accent/40',
     bg: 'bg-brand-accent/5',
-    icon: '💡',
     label: 'Key Takeaway',
     labelColor: 'text-brand-accent',
   },
   warning: {
-    border: 'border-yellow-500/40',
-    bg: 'bg-yellow-500/5',
-    icon: '⚠️',
+    border: 'border-brand-accent/30',
+    bg: 'bg-brand-accent/[0.03]',
     label: 'Watch Out',
-    labelColor: 'text-yellow-400',
+    labelColor: 'text-brand-accent',
   },
   tip: {
-    border: 'border-blue-400/40',
-    bg: 'bg-blue-400/5',
-    icon: '📌',
+    border: 'border-brand-accent/30',
+    bg: 'bg-brand-accent/[0.03]',
     label: 'Pro Tip',
-    labelColor: 'text-blue-400',
+    labelColor: 'text-brand-accent',
   },
 }
 
@@ -38,8 +35,8 @@ export default function CalloutBox({ type = 'takeaway', children }: CalloutBoxPr
       role="note"
     >
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-lg" aria-hidden="true">{s.icon}</span>
-        <span className={`font-mono font-semibold text-sm uppercase tracking-wider ${s.labelColor}`}>
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+        <span className={`font-mono font-bold text-xs uppercase tracking-widest ${s.labelColor}`}>
           {s.label}
         </span>
       </div>

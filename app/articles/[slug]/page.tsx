@@ -129,8 +129,8 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           <article className="flex-1 min-w-0 max-w-[680px] mx-auto xl:mx-0">
             {/* Header */}
             <AnimatedSection>
-              <div className="mb-8">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="mb-10">
+                <div className="flex items-center gap-3 mb-6">
                   <CategoryTag
                     category={article.frontmatter.category}
                     size="md"
@@ -142,14 +142,14 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                     {article.readingTime}
                   </span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 leading-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-6 leading-[1.05] font-editorial" style={{ fontStyle: 'italic' }}>
                   {article.frontmatter.title}
                 </h1>
-                <p className="text-lg text-brand-text/60">
+                <p className="text-lg text-brand-text-muted max-w-xl">
                   {article.frontmatter.excerpt}
                 </p>
               </div>
-              <hr className="border-brand-border mb-10" />
+              <div className="h-px bg-brand-accent/20 mb-10" />
             </AnimatedSection>
 
             {/* MDX Content */}
@@ -178,12 +178,12 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               {prevArticle && (
                 <Link
                   href={`/articles/${prevArticle.slug}`}
-                  className="group p-4 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all"
+                  className="group p-5 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all glow-hover"
                 >
-                  <p className="text-xs font-mono text-brand-text-muted mb-1">
-                    &larr; Previous
+                  <p className="text-xs font-mono text-brand-text-muted mb-2 uppercase tracking-wider">
+                    Previous
                   </p>
-                  <p className="text-sm font-semibold text-white group-hover:text-brand-accent transition-colors line-clamp-2">
+                  <p className="text-sm font-bold text-white group-hover:text-brand-accent transition-colors line-clamp-2">
                     {prevArticle.frontmatter.title}
                   </p>
                 </Link>
@@ -191,12 +191,12 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               {nextArticle && (
                 <Link
                   href={`/articles/${nextArticle.slug}`}
-                  className="group p-4 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all sm:text-right sm:col-start-2"
+                  className="group p-5 rounded-xl border border-brand-border bg-brand-card hover:border-brand-accent/30 transition-all sm:text-right sm:col-start-2 glow-hover"
                 >
-                  <p className="text-xs font-mono text-brand-text-muted mb-1">
-                    Next &rarr;
+                  <p className="text-xs font-mono text-brand-text-muted mb-2 uppercase tracking-wider">
+                    Next
                   </p>
-                  <p className="text-sm font-semibold text-white group-hover:text-brand-accent transition-colors line-clamp-2">
+                  <p className="text-sm font-bold text-white group-hover:text-brand-accent transition-colors line-clamp-2">
                     {nextArticle.frontmatter.title}
                   </p>
                 </Link>
@@ -205,14 +205,17 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
             {/* Newsletter CTA */}
             <AnimatedSection className="mt-16">
-              <div className="rounded-xl border border-brand-accent/20 bg-brand-accent/5 p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Enjoyed this? Get your weekly dose.
-                </h3>
-                <p className="text-brand-text-muted mb-6">
-                  One email per week. Real research. Zero bro science.
-                </p>
-                <NewsletterSignup compact />
+              <div className="rounded-xl border border-brand-accent/20 bg-brand-accent/[0.03] p-8">
+                <div className="text-center">
+                  <h3 className="text-2xl md:text-3xl tracking-tight mb-2">
+                    <span className="font-editorial text-white" style={{ fontStyle: 'italic' }}>Enjoyed this?</span>{' '}
+                    <span className="font-sans font-bold text-brand-accent">Get your weekly dose.</span>
+                  </h3>
+                  <p className="text-brand-text-muted mb-6">
+                    One email per week. Real research. Zero bro science.
+                  </p>
+                  <NewsletterSignup compact />
+                </div>
               </div>
             </AnimatedSection>
           </article>

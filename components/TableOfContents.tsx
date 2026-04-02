@@ -52,7 +52,7 @@ export default function TableOfContents() {
   return (
     <nav aria-label="Table of contents" className="hidden xl:block">
       <div className="sticky top-24">
-        <p className="font-mono text-xs uppercase tracking-wider text-brand-text-muted mb-4">
+        <p className="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4">
           On this page
         </p>
         <ul className="space-y-2 border-l border-brand-border">
@@ -64,8 +64,8 @@ export default function TableOfContents() {
                   heading.level === 3 ? 'pl-6' : 'pl-4'
                 } ${
                   activeId === heading.id
-                    ? 'text-brand-accent border-brand-accent'
-                    : 'text-brand-text-muted border-transparent hover:text-brand-text hover:border-brand-text-muted/30'
+                    ? 'text-brand-accent border-brand-accent font-bold'
+                    : 'text-brand-text-muted border-transparent hover:text-brand-text hover:border-brand-accent/30'
                 }`}
               >
                 {heading.text}

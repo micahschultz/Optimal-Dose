@@ -37,14 +37,20 @@ export default function ArticlesClient({ articles }: ArticlesClientProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20">
       <AnimatedSection>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-          Articles
+        <p className="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4">
+          All articles
+        </p>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight mb-4">
+          <span className="font-editorial text-white" style={{ fontStyle: 'italic' }}>Articles</span>
         </h1>
-        <p className="text-brand-text-muted text-lg mb-10 max-w-2xl">
+        <p className="text-brand-text-muted text-lg mb-12 max-w-2xl">
           Research-backed takes on training, nutrition, and the business of
           wellness. No fluff. No bro science.
         </p>
       </AnimatedSection>
+
+      {/* Thin divider */}
+      <div className="h-px bg-brand-border mb-10" />
 
       {/* Filters */}
       <AnimatedSection delay={0.1} className="mb-10">
@@ -54,10 +60,10 @@ export default function ArticlesClient({ articles }: ArticlesClientProps) {
               role="tab"
               aria-selected={activeCategory === 'all'}
               onClick={() => setActiveCategory('all')}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                 activeCategory === 'all'
                   ? 'bg-brand-accent text-brand-bg'
-                  : 'bg-brand-card border border-brand-border text-brand-text-muted hover:text-white hover:border-brand-accent/30'
+                  : 'bg-transparent border border-brand-border text-brand-text-muted hover:text-white hover:border-brand-accent/30'
               }`}
             >
               All
@@ -68,10 +74,10 @@ export default function ArticlesClient({ articles }: ArticlesClientProps) {
                 role="tab"
                 aria-selected={activeCategory === key}
                 onClick={() => setActiveCategory(key)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                   activeCategory === key
                     ? 'bg-brand-accent text-brand-bg'
-                    : 'bg-brand-card border border-brand-border text-brand-text-muted hover:text-white hover:border-brand-accent/30'
+                    : 'bg-transparent border border-brand-border text-brand-text-muted hover:text-white hover:border-brand-accent/30'
                 }`}
               >
                 {CATEGORIES[key].label}
@@ -88,7 +94,7 @@ export default function ArticlesClient({ articles }: ArticlesClientProps) {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full sm:w-64 px-4 py-2 pl-10 rounded-lg bg-brand-card border border-brand-border text-white placeholder:text-brand-text-muted/50 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_3px_rgba(0,212,170,0.15)] transition-all text-sm"
+              className="w-full sm:w-64 px-4 py-2 pl-10 rounded-lg bg-brand-card border border-brand-border text-white placeholder:text-brand-text-muted/40 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_3px_rgba(0,191,99,0.15)] transition-all text-sm"
             />
             <svg
               className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted"

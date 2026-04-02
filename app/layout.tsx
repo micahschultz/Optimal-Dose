@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Be_Vietnam_Pro, Space_Mono } from 'next/font/google'
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/constants'
 import ClientLayout from './client-layout'
 import './globals.css'
 
-const inter = Inter({
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '700', '800'],
+  variable: '--font-sans',
   display: 'swap',
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
+  weight: ['400', '700'],
   variable: '--font-mono',
   display: 'swap',
 })
@@ -49,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${beVietnamPro.variable} ${spaceMono.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <a href="#main-content" className="skip-to-content">
           Skip to content

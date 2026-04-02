@@ -8,7 +8,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   return (
     <div className="mt-12 pt-8 border-t border-brand-border">
-      <p className="font-mono text-xs uppercase tracking-wider text-brand-text-muted mb-4">
+      <p className="font-mono text-xs uppercase tracking-widest text-brand-text-muted mb-4">
         Share this article
       </p>
       <div className="flex gap-3">
@@ -20,7 +20,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-sm text-brand-text-muted hover:text-white hover:border-brand-accent/30 transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-sm text-brand-text-muted hover:text-brand-accent hover:border-brand-accent/30 transition-all"
         >
           <svg
             className="w-4 h-4"
@@ -36,7 +36,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           onClick={() => {
             navigator.clipboard.writeText(window.location.href)
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-sm text-brand-text-muted hover:text-white hover:border-brand-accent/30 transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-sm text-brand-text-muted hover:text-brand-accent hover:border-brand-accent/30 transition-all"
         >
           <svg
             className="w-4 h-4"

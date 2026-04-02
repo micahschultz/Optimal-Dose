@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { NAV_LINKS, SITE_NAME } from '@/lib/constants'
+import { NAV_LINKS } from '@/lib/constants'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,7 +43,7 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-brand-bg/80 backdrop-blur-xl border-b border-brand-border'
+          ? 'bg-brand-bg/70 backdrop-blur-xl border-b border-brand-border'
           : 'bg-transparent'
       }`}
     >
@@ -51,11 +51,13 @@ export default function Navigation() {
         className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
         aria-label="Main navigation"
       >
+        {/* Logo: "optimal" in Times italic + "dose." in Be Vietnam Bold */}
         <Link
           href="/"
-          className="text-white font-bold text-lg tracking-tight hover:text-brand-accent transition-colors"
+          className="group text-brand-accent text-xl tracking-tight hover:opacity-80 transition-opacity"
         >
-          {SITE_NAME}
+          <span className="font-editorial not-italic" style={{ fontStyle: 'italic' }}>optimal</span>
+          <span className="font-sans font-bold">dose.</span>
         </Link>
 
         {/* Desktop nav */}
@@ -64,7 +66,7 @@ export default function Navigation() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`relative text-sm font-medium transition-colors duration-200 ${
+                className={`relative text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                   isActive(link.href)
                     ? 'text-brand-accent'
                     : 'text-brand-text-muted hover:text-white'
@@ -93,17 +95,17 @@ export default function Navigation() {
           <span className="sr-only">{isOpen ? 'Close' : 'Open'} navigation</span>
           <div className="relative w-5 h-4">
             <span
-              className={`absolute left-0 block w-full h-0.5 bg-white transition-all duration-300 ${
+              className={`absolute left-0 block w-full h-0.5 bg-brand-accent transition-all duration-300 ${
                 isOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'
               }`}
             />
             <span
-              className={`absolute left-0 top-1/2 -translate-y-1/2 block w-full h-0.5 bg-white transition-opacity duration-300 ${
+              className={`absolute left-0 top-1/2 -translate-y-1/2 block w-full h-0.5 bg-brand-accent transition-opacity duration-300 ${
                 isOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
             <span
-              className={`absolute left-0 block w-full h-0.5 bg-white transition-all duration-300 ${
+              className={`absolute left-0 block w-full h-0.5 bg-brand-accent transition-all duration-300 ${
                 isOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0'
               }`}
             />
@@ -119,20 +121,20 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 bg-brand-bg/95 backdrop-blur-xl md:hidden z-30"
+            className="fixed inset-0 top-16 bg-brand-bg/98 backdrop-blur-xl md:hidden z-30"
           >
             <motion.ul
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center justify-center h-full gap-8 -mt-16"
+              className="flex flex-col items-start justify-center h-full gap-8 -mt-16 px-8"
             >
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`text-3xl font-bold transition-colors ${
+                    className={`text-4xl font-bold uppercase tracking-wider transition-colors ${
                       isActive(link.href)
                         ? 'text-brand-accent'
                         : 'text-white hover:text-brand-accent'
