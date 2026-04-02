@@ -78,6 +78,12 @@ export default function Footer() {
             Built with science, not supplements.
           </p>
         </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-xs text-brand-text-muted/30 font-mono">
+            by <a href="https://instagram.com/micahschultz_" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">Micah Schultz</a>
+          </p>
+        </div>
       </div>
     </footer>
   )
