@@ -38,5 +38,5 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/optimaldose',
-  instagram: 'https://instagram.com/optimal-dose',
+  instagram: 'https://instagram.com/optimal_dose',
 } as const
