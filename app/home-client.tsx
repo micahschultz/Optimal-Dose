@@ -101,7 +101,7 @@ export default function HomeClient({
                 &amp;
               </span>
               <p className="font-mono text-xs text-brand-text-muted/50 tracking-widest uppercase mt-2">
-                Evidence over ego
+                 <a href="https://instagram.com/micahschultz_" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">By Micah Schultz</a>
               </p>
             </motion.div>
           </motion.div>
